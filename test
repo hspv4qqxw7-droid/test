@@ -1,0 +1,405 @@
+/* ─── GAMES ─── */
+.games-section { background: var(--card); }
+.games-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.8rem; margin-top: 3rem;
+}
+.game-tag {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.8rem 1rem;
+  font-size: 0.82rem; font-weight: 500;
+  text-align: center; color: rgba(232,234,240,0.7);
+  transition: border-color 0.2s, color 0.2s;
+}
+.game-tag:hover { border-color: rgba(0,212,255,0.3); color: var(--cyan); }
+.game-tag .gi { font-size: 1.2rem; display: block; margin-bottom: 0.3rem; }
+
+.games-note {
+  margin-top: 1.5rem; font-size: 0.85rem;
+  color: var(--muted); line-height: 1.7;
+}
+.games-note a { color: var(--cyan); text-decoration: none; }
+
+/* ─── MEMBERSHIP ─── */
+.membership-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; align-items: center; margin-top: 3.5rem;
+}
+.membership-perks { display: flex; flex-direction: column; gap: 1.2rem; }
+.perk {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1.2rem; background: var(--card);
+  border: 1px solid var(--border); border-radius: 10px;
+  transition: border-color 0.2s;
+}
+.perk:hover { border-color: rgba(0,212,255,0.2); }
+.perk-icon { font-size: 1.5rem; flex-shrink: 0; }
+.perk-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+.perk-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+.membership-cta {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 2.5rem;
+  text-align: center;
+}
+.membership-cta .sec-title { font-size: 2rem; margin-bottom: 0.8rem; }
+.membership-cta p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+
+/* ─── INFO STRIP ─── */
+.info-strip {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.info-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  divide-x: 1px solid var(--border);
+}
+.info-tile {
+  padding: 2rem 1.8rem;
+  border-right: 1px solid var(--border);
+}
+.info-tile:last-child { border-right: none; }
+.info-tile-label {
+  font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.6rem;
+}
+.info-tile-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem; font-weight: 700; color: var(--text);
+  line-height: 1.4;
+}
+.info-tile-val a { color: var(--cyan); text-decoration: none; }
+.info-tile-val a:hover { text-decoration: underline; }
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 3rem 5% 2rem;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1.5rem;
+}
+.foot-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.3rem; font-weight: 900; text-transform: uppercase;
+}
+.foot-logo .hi { color: var(--cyan); }
+.foot-copy { font-size: 0.78rem; color: var(--muted); }
+.foot-links { display: flex; gap: 1.5rem; }
+.foot-links a {
+  font-size: 0.8rem; color: var(--muted); text-decoration: none;
+  transition: color 0.2s;
+}
+.foot-links a:hover { color: var(--cyan); }
+
+/* ─── REVEAL ─── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { display: none; }
+  .specs-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .membership-grid { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+}
+@media(max-width: 600px) {
+  .specs-grid { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+  .info-tile { border-right: none; border-bottom: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><span class="hi">TOP</span> CYBER CAFE</div>
+  <ul class="nav-links">
+    <li><a href="#specs">Specs</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#games">Games</a></li>
+    <li><a href="#membership">Membership</a></li>
+    <li><a href="#info">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('info').scrollIntoView({behavior:'smooth'})">Find Us</button>
+</nav>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="hero-tag">📍 Turner, Canberra ACT</div>
+      <h1>Canberra's<br><span class="cyan">Premier</span><br>Gaming Cafe</h1>
+      <p class="hero-sub">High-performance PCs, super-fast fibre internet, RTX 5060/5070 graphics cards, and friendly staff — all in the heart of Turner.</p>
+      <div class="hero-btns">
+        <a href="#pricing" class="btn-primary">View Pricing</a>
+        <a href="#games" class="btn-secondary">Browse Games</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="pc-card">
+        <div class="pc-screen">
+          <div class="pc-screen-text">GG</div>
+        </div>
+        <div class="pc-base">
+          <div class="pc-spec"><strong>RTX 5070</strong>GPU</div>
+          <div class="pc-spec"><strong>Fibre</strong>Internet</div>
+          <div class="pc-spec"><strong>Steam</strong>Library</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STRIPE -->
+<div class="stripe">
+  <div class="stripe-item">💻 RTX 5060 / 5070 GPUs</div>
+  <div class="stripe-item">⚡ Super Fast Internet</div>
+  <div class="stripe-item">🎮 Massive Steam Library</div>
+  <div class="stripe-item">🤝 Friendly Staff</div>
+  <div class="stripe-item">🏆 Competitive & Casual Play</div>
+  <div class="stripe-item">💳 Memberships Available</div>
+  <div class="stripe-item">📍 Turner, Canberra ACT</div>
+</div>
+
+<!-- SPECS -->
+<section id="specs" class="specs-section">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Hardware</div>
+      <h2 class="sec-title">Top-Tier Specs</h2>
+      <p class="sec-sub">Every seat is equipped with high-end gear so you can focus on the game, not the frame rate.</p>
+    </div>
+    <div class="specs-grid reveal" style="margin-top:3rem;">
+      <div class="spec-tile">
+        <div class="spec-icon">🖥️</div>
+        <div class="spec-name">Graphics</div>
+        <div class="spec-val">RTX 5060 / 5070</div>
+        <div class="spec-note">Latest NVIDIA GeForce cards</div>
+      </div>
+      <div class="spec-tile">
+        <div class="spec-icon">⚡</div>
+        <div class="spec-name">Internet</div>
+        <div class="spec-val">Fibre NBN</div>
+        <div class="spec-note">Ultra-low latency, super fast speeds</div>
+      </div>
+      <div class="spec-tile">
+        <div class="spec-icon">🎮</div>
+        <div class="spec-name">Platform</div>
+        <div class="spec-val">Steam + More</div>
+        <div class="spec-note">Huge library of titles ready to play</div>
+      </div>
+      <div class="spec-tile">
+        <div class="spec-icon">🖱️</div>
+        <div class="spec-name">Peripherals</div>
+        <div class="spec-val">Gaming Grade</div>
+        <div class="spec-note">High-refresh monitors, gaming mice & keyboards</div>
+      </div>
+      <div class="spec-tile">
+        <div class="spec-icon">🎧</div>
+        <div class="spec-name">Audio</div>
+        <div class="spec-val">Headsets</div>
+        <div class="spec-note">Provided at every station</div>
+      </div>
+      <div class="spec-tile">
+        <div class="spec-icon">💺</div>
+        <div class="spec-name">Seating</div>
+        <div class="spec-val">Gaming Chairs</div>
+        <div class="spec-note">Comfortable for long sessions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Pricing</div>
+      <h2 class="sec-title">Simple, Fair Rates</h2>
+      <p class="sec-sub">Whether you're dropping in for a quick session or settling in for the night, we've got a plan for you.</p>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <div class="price-plan">Drop-In</div>
+        <div class="price-amount">$3<span>/hr</span></div>
+        <div class="price-desc">Pay as you go</div>
+        <ul class="price-features">
+          <li>Full PC access</li>
+          <li>Steam library</li>
+          <li>Fibre internet</li>
+          <li>Headset included</li>
+        </ul>
+        <button class="price-btn">Walk In</button>
+      </div>
+      <div class="price-card featured">
+        <div class="price-plan">Member — Per Session</div>
+        <div class="price-amount">$2.50<span>/hr</span></div>
+        <div class="price-desc">With active membership</div>
+        <ul class="price-features">
+          <li>Everything in Drop-In</li>
+          <li>Download any game (excl. exclusions)</li>
+          <li>Priority seating</li>
+          <li>Member discounts</li>
+        </ul>
+        <button class="price-btn">Get Membership</button>
+      </div>
+      <div class="price-card">
+        <div class="price-plan">Group / Event</div>
+        <div class="price-amount">POA</div>
+        <div class="price-desc">LAN parties & group bookings</div>
+        <ul class="price-features">
+          <li>Block booking discount</li>
+          <li>Reserved area</li>
+          <li>Great for teams & parties</li>
+          <li>Contact us to arrange</li>
+        </ul>
+        <button class="price-btn">Contact Us</button>
+      </div>
+    </div>
+    <p style="font-size:0.8rem;color:var(--muted);margin-top:1.2rem;">* Pricing is indicative. Contact us or visit in person for current rates and membership details.</p>
+  </div>
+</section>
+
+<!-- GAMES -->
+<section id="games" class="games-section">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Game Library</div>
+      <h2 class="sec-title">What's On</h2>
+      <p class="sec-sub">A huge Steam library and the biggest titles in esports and casual gaming. Contact us to confirm a specific game is available before you visit.</p>
+    </div>
+    <div class="games-grid reveal">
+      <div class="game-tag"><span class="gi">🔫</span>Valorant</div>
+      <div class="game-tag"><span class="gi">💣</span>CS2</div>
+      <div class="game-tag"><span class="gi">⚔️</span>Dota 2</div>
+      <div class="game-tag"><span class="gi">🌀</span>League of Legends</div>
+      <div class="game-tag"><span class="gi">🔦</span>Apex Legends</div>
+      <div class="game-tag"><span class="gi">🏗️</span>Fortnite</div>
+      <div class="game-tag"><span class="gi">🎯</span>Overwatch 2</div>
+      <div class="game-tag"><span class="gi">🧟</span>Call of Duty</div>
+      <div class="game-tag"><span class="gi">⚽</span>EA FC 25</div>
+      <div class="game-tag"><span class="gi">🏎️</span>Rocket League</div>
+      <div class="game-tag"><span class="gi">🗡️</span>Path of Exile 2</div>
+      <div class="game-tag"><span class="gi">🎮</span>+ Steam Library</div>
+    </div>
+    <p class="games-note reveal">
+      Members can download additional games from our Steam library. Some titles (PUBG, CS:GO legacy, Rust, Sekiro, Elden Ring and others) are excluded from member downloads.<br>
+      Not sure if your game is available? <a href="tel:+61432980888">Call us</a> or <a href="https://www.facebook.com/TopCyberCafe/" target="_blank">message us on Facebook</a> before you visit.
+    </p>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section id="membership">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Membership</div>
+      <h2 class="sec-title">Join the Club</h2>
+    </div>
+    <div class="membership-grid reveal">
+      <div class="membership-perks">
+        <div class="perk">
+          <div class="perk-icon">💰</div>
+          <div>
+            <div class="perk-title">Discounted Rates</div>
+            <div class="perk-desc">Members pay less per hour — the more you play, the more you save.</div>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">📥</div>
+          <div>
+            <div class="perk-title">Download Games</div>
+            <div class="perk-desc">Access our full Steam library and download titles directly to your session PC.</div>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">🎯</div>
+          <div>
+            <div class="perk-title">Priority Access</div>
+            <div class="perk-desc">Members get first pick during busy periods and peak gaming nights.</div>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">🤝</div>
+          <div>
+            <div class="perk-title">Community</div>
+            <div class="perk-desc">Join a growing Canberra gaming community. Events, tournaments, and good vibes.</div>
+          </div>
+        </div>
+      </div>
+      <div class="membership-cta">
+        <div class="sec-label">Ready to Level Up?</div>
+        <div class="sec-title">Get Your Membership</div>
+        <p>Ask our friendly staff in-store or reach out on Facebook to get started with a membership today.</p>
+        <a href="https://www.facebook.com/TopCyberCafe/" target="_blank" class="btn-primary" style="display:inline-block;">Message Us on Facebook</a>
+        <div style="margin-top:1rem;">
+          <a href="tel:+61432980888" class="btn-secondary" style="display:inline-block;">📞 0432 980 888</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div id="info" class="info-strip">
+  <div class="wrap">
+    <div class="info-grid">
+      <div class="info-tile">
+        <div class="info-tile-label">📍 Address</div>
+        <div class="info-tile-val">Level 1, 17 Barry Drive<br>Turner ACT 2612</div>
+      </div>
+      <div class="info-tile">
+        <div class="info-tile-label">📞 Phone</div>
+        <div class="info-tile-val"><a href="tel:+61432980888">0432 980 888</a></div>
+      </div>
+      <div class="info-tile">
+        <div class="info-tile-label">🕒 Hours</div>
+        <div class="info-tile-val">Open from 3:00 PM daily<br><span style="font-size:0.85rem;color:var(--muted);font-family:'Barlow',sans-serif;font-weight:400;">Open late — contact for details</span></div>
+      </div>
+      <div class="info-tile">
+        <div class="info-tile-label">💳 Payment</div>
+        <div class="info-tile-val">Cash · Eftpos<br>Visa · Mastercard</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP EMBED PLACEHOLDER -->
+<div style="width:100%;height:320px;background:var(--card);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;">
+  <div style="font-size:2rem;">📍</div>
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;">Level 1, 17 Barry Drive, Turner ACT 2612</div>
+  <a href="https://maps.google.com/?q=17+Barry+Drive+Turner+ACT+2612" target="_blank" class="btn-primary" style="margin-top:0.5rem;">Open in Google Maps →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo"><span class="hi">TOP</span> CYBER CAFE</div>
+  <div class="foot-copy">© 2026 Top Cyber Cafe · Turner, Canberra ACT · Operated by Jade Stone Gaming</div>
+  <div class="foot-links">
+    <a href="https://www.facebook.com/TopCyberCafe/" target="_blank">Facebook</a>
+    <a href="tel:+61432980888">Call Us</a>
+    <a href="mailto:yshi032032@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
